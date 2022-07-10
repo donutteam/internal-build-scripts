@@ -29,8 +29,6 @@ await fs.promises.mkdir(path.dirname(outputCssPath),
 		recursive: true, 
 	});
 
-const css = await fs.promises.readFile(inputCssPath);
-
 const plugins =
 [
 	postcssImport,
@@ -66,6 +64,8 @@ async function build()
 	const start = performance.now();
 
 	console.log("Building CSS...");
+
+	const css = await fs.promises.readFile(inputCssPath);
 
 	const result = await processor.process(css,
 		{
