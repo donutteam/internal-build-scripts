@@ -101,7 +101,7 @@ function queueBuild()
 
 if (process.argv.indexOf("--watch") != -1)
 {
-	const watcher = chokidar.watch(path.join(process.cwd(), "**", "*.css"),
+	const watcher = chokidar.watch(path.join(process.cwd(), "**", "*.{css,js,html}"),
 		{
 			ignored:
 			[
