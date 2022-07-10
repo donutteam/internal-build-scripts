@@ -1,4 +1,4 @@
-# Lib Configs
+# Internal Build Scripts
 A collection of build scripts used internally by various Donut Team web services.
 
 This library isn't really designed for general use but, regardless, its code has been made available in case it is helpful to others using similar toolchains.
