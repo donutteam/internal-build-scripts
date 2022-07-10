@@ -41,7 +41,15 @@ const plugins =
 			],
 			theme:
 			{
-				extend: {},
+				extend: 
+				{
+					colors:
+					{
+						"dt-primary": "#4e99e4",
+						"dt-secondary": "#1e73c7",
+						"dt-tertiary": "#165593",
+					},
+				},
 			},
 			plugins: [],
 		}),
