@@ -45,6 +45,8 @@ esbuild.build(
 			path.join(process.cwd(), "app", "client.js"),
 		],
 
+		format: "esm",
+
 		minify: process.env.NODE_ENV == "production",
 
 		outfile: path.join(process.cwd(), "app", "static", "index.js"),
