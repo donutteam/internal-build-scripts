@@ -17,6 +17,32 @@ import tailwind from "tailwindcss";
 
 import chokidar from "chokidar";
 
+import { theme as donutteamTheme } from "./../themes/donutteam.js";
+import { theme as hetcTheme } from "./../themes/hetc.js";
+
+//
+// Theme
+//
+
+let theme = donutteamTheme;
+
+if (process.argv.indexOf("--theme") != -1)
+{
+	const themeOverride = process.argv[process.argv.indexOf("--theme") + 1];
+
+	switch (themeOverride)
+	{
+		case "donutteam":
+		default:
+			theme = donutteamTheme;
+			break;
+
+		case "hetc":
+			theme = hetcTheme;
+			break;
+	}
+}
+
 //
 // PostCSS Build Script
 //
@@ -39,18 +65,7 @@ const plugins =
 				"./app/**/*.{html,js}",
 				"./node_modules/@donutteam/**/components/**/*.{html,js}",
 			],
-			theme:
-			{
-				extend: 
-				{
-					colors:
-					{
-						"dt-primary": "#4e99e4",
-						"dt-secondary": "#1e73c7",
-						"dt-tertiary": "#165593",
-					},
-				},
-			},
+			theme,
 			plugins: [],
 		}),
 	postcssCalc(
