@@ -1,6 +1,6 @@
 {
   "name": "@donutteam/internal-build-scripts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A collection of build scripts used internally by various Donut Team web services.",
   "main": "./index.js",
   "scripts": {
