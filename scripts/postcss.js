@@ -86,8 +86,6 @@ async function build()
 {
 	const start = performance.now();
 
-	console.log("Building CSS...");
-
 	const css = await fs.promises.readFile(inputCssPath);
 
 	const result = await processor.process(css,
@@ -101,7 +99,7 @@ async function build()
 
 	const duration = performance.now() - start;
 
-	console.log(`Built CSS in ${ duration.toFixed(2) }ms!`);
+	console.log(`Built CSS in ${ duration.toFixed(2) }ms on ${ new Date() }`);
 }
 
 build();
