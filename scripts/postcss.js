@@ -66,6 +66,10 @@ const plugins =
 				"./node_modules/@donutteam/**/components/**/*.{html,js}",
 			],
 			theme,
+			corePlugins:
+			{
+				preflight: false,
+			},
 			plugins: [],
 		}),
 	postcssCalc(
