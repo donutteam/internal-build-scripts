@@ -17,6 +17,8 @@ import tailwind from "tailwindcss";
 
 import chokidar from "chokidar";
 
+import { plugin as twResetsPlugin } from "./../tailwind/plugins/resets.js";
+
 import { theme as donutteamTheme } from "./../themes/donutteam.js";
 import { theme as hetcTheme } from "./../themes/hetc.js";
 
@@ -70,7 +72,10 @@ const plugins =
 			{
 				preflight: false,
 			},
-			plugins: [],
+			plugins: 
+			[
+				twResetsPlugin,
+			],
 		}),
 	postcssCalc(
 		{ 
