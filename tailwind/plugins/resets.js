@@ -30,7 +30,7 @@ export const plugin = tailwindPlugin((api) =>
 
 			"a":
 			{
-				color: "var(--link-color, rgb(68, 126, 174)",
+				color: "var(--link-color, rgb(68, 126, 174))",
 			},
 
 			"button":
