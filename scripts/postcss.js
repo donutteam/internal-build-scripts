@@ -13,6 +13,7 @@ import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import postcssCalc from "postcss-calc";
 import postcssImport from "postcss-import";
+import postcssNested from "postcss-nested";
 
 import chokidar from "chokidar";
 
@@ -37,6 +38,7 @@ await fs.promises.mkdir(path.dirname(outputCssPath),
 const plugins =
 [
 	postcssImport,
+	postcssNested,
 	tailwind,
 	postcssCalc(
 		{ 
