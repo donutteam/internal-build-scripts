@@ -14,6 +14,8 @@ import cssnano from "cssnano";
 import postcssCalc from "postcss-calc";
 import postcssImport from "postcss-import";
 import postcssNested from "postcss-nested";
+import postcssScss from "postcss-scss";
+import postcssStripInlineComments from "postcss-strip-inline-comments";
 
 import chokidar from "chokidar";
 
@@ -38,12 +40,13 @@ await fs.promises.mkdir(path.dirname(outputCssPath),
 const plugins =
 [
 	postcssImport,
-	postcssNested,
 	tailwind,
 	postcssCalc(
 		{ 
 			mediaQueries: true,
 		}),
+	postcssNested,
+	postcssStripInlineComments,
 	autoprefixer,	
 ];
 
@@ -62,6 +65,7 @@ async function build()
 
 	const result = await processor.process(css,
 		{
+			parser: postcssScss,
 			from: inputCssPath,
 			to: outputCssPath,
 			map: process.env.NODE_ENV != "production",
