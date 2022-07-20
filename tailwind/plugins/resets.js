@@ -45,8 +45,8 @@ export const plugin = tailwindPlugin((api) =>
 
 			"header, h1, h2, h3, h4, h5, h6, p":
 			{
-				marginTop: "1rem",
-				marginBottom: "1rem",
+				marginTop: "var(--top-bottom-margin, 0.5rem)",
+				marginBottom: "var(--top-bottom-margin, 0.5rem)",
 
 				"&:first-child":
 				{
