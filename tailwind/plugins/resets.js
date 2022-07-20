@@ -43,6 +43,22 @@ export const plugin = tailwindPlugin((api) =>
 				wordBreak: "break-all",
 			},
 
+			"header, h1, h2, h3, h4, h5, h6, p":
+			{
+				marginTop: "1rem",
+				marginBottom: "1rem",
+
+				"&:first-child":
+				{
+					marginTop: "0px",
+				},
+
+				"&:last-child":
+				{
+					marginBottom: "0px",
+				},
+			},
+
 			"img":
 			{
 				display: "block",
