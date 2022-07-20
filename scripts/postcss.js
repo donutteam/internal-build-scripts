@@ -13,37 +13,14 @@ import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import postcssCalc from "postcss-calc";
 import postcssImport from "postcss-import";
-import tailwind from "tailwindcss";
 
 import chokidar from "chokidar";
 
-import { plugin as twResetsPlugin } from "./../tailwind/plugins/resets.js";
-
-import { theme as donutteamTheme } from "./../themes/donutteam.js";
-import { theme as hetcTheme } from "./../themes/hetc.js";
+import { plugin as tailwind } from "./../tailwind/index.js";
 
 //
 // Theme
 //
-
-let theme = donutteamTheme;
-
-if (process.argv.indexOf("--theme") != -1)
-{
-	const themeOverride = process.argv[process.argv.indexOf("--theme") + 1];
-
-	switch (themeOverride)
-	{
-		case "donutteam":
-		default:
-			theme = donutteamTheme;
-			break;
-
-		case "hetc":
-			theme = hetcTheme;
-			break;
-	}
-}
 
 //
 // PostCSS Build Script
@@ -60,23 +37,7 @@ await fs.promises.mkdir(path.dirname(outputCssPath),
 const plugins =
 [
 	postcssImport,
-	tailwind(
-		{
-			content:
-			[
-				"./app/**/*.{html,js}",
-				"./node_modules/@donutteam/**/components/**/*.{html,js}",
-			],
-			theme,
-			corePlugins:
-			{
-				preflight: false,
-			},
-			plugins: 
-			[
-				twResetsPlugin,
-			],
-		}),
+	tailwind,
 	postcssCalc(
 		{ 
 			mediaQueries: true,
